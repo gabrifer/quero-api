@@ -1,0 +1,19 @@
+const expressLoader = require('./express');
+
+module.exports = async = (settings = {}) => {
+  const load = async () => {
+    try {
+      console.log('[LOADERS] - Running loader files');
+      const app = await expressLoader();
+      console.log('[LOADERS] - Loader files runned');
+      return app;
+    } catch (err) {
+      console.error('[LOADERS] - Error running loader files');
+      console.error(err);
+    }
+  };
+
+  return {
+    load,
+  };
+};
