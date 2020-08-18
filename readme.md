@@ -122,8 +122,6 @@ body: dados referente as palestras conforme especificado
 
 Para realizar uma requisição neste endpoint, utilize o Postman conforme imagem abaixo:
 
-1NWc7zbbBiTEslVs0VMY9Lk3PvdSt1bUn
-
 ![Exemplo no de requisição no Postman](https://drive.google.com/uc?export=view&id=1NWc7zbbBiTEslVs0VMY9Lk3PvdSt1bUn)
 
 Utilizando os seguintes dados de entrada:
