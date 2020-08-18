@@ -1,6 +1,7 @@
 /**
- * This functios takes an integer value an covert in a form of HH:MM AM|PM timestamp
+ * This functios takes an integer value an covert in a HH:MM AM|PM timestamp
  * @param {int} value
+ * @returns {string} HH:MM AM|PM timestamp
  */
 const intToTime = (value) => {
   const hours = Math.floor(value / 60);

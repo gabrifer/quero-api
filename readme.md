@@ -75,26 +75,35 @@ estrutura do código e facilita os testes unitários.
 
 Segue abaixo a organização de arquivos da aplicação
 
-package.json --Dependências do projeto
-/src --Pasta contendo todo o código fonte da aplicação
-/loaders --Arquivos necessário para inicialização da aplicação
-/api --Arquivos relacionados com a camada de controle
-/services --Arquivos relacionados com a camada de serviço
-/utils --Utilitários
-/models --Arquivos que seriam relacionados a camada de dados
+```
+package.json  --Dependências do projeto
+/src          --Pasta contendo todo o código fonte da aplicação
+    app.js    --Arquivo de entrada da aplicação
+    /loaders  --Arquivos necessário para inicialização da aplicação
+    /api      --Arquivos relacionados com a camada de controle
+    /services --Arquivos relacionados com a camada de serviço
+    /utils    --Utilitários
+    /models   --Arquivos que seriam relacionados a camada de dados
+    /config   --Configuraçoes globais
+/tests        --Arquivos relacionados a testes unitários
+```
 
 # Rodando a aplicação
 
-Para rodar a aplicação, siga os comandos abaixo:
+Para rodar a aplicação localmente, siga os comandos abaixo:
 
-git clone blablabal
-cd blablabl
+```
+git clone https://github.com/gabrifer/quero-api.git
+cd quero-api
 npm i
 npm start
+```
 
 Para rodar os testes unitários, basta executar:
 
+```
 npm test
+```
 
 # Testando a aplicação
 

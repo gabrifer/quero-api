@@ -10,7 +10,7 @@ const knapsackHelper = (lectures, capacity) => {
 
   let weightMatrix = new Array(n + 1);
 
-  //Initialize each matrix
+  //Initialize weight matrix
   for (let i = 0; i < n + 1; ++i) {
     weightMatrix[i] = new Array(capacity + 1);
   }
@@ -18,12 +18,15 @@ const knapsackHelper = (lectures, capacity) => {
   //Fill in weight matrix and keep matrix in order to extract which lecture will be considered in the section
   for (let i = 0; i <= n; i++) {
     for (let w = 0; w <= capacity; w++) {
+      //Top row and first column will be filled with 0
       if (i === 0 || w === 0) weightMatrix[i][w] = 0;
+      //If we can include a given lecture
       else if (lectures[i - 1].timeAmount <= w)
         weightMatrix[i][w] = Math.max(
           1 + weightMatrix[i - 1][w - lectures[i - 1].timeAmount],
           weightMatrix[i - 1][w]
         );
+      //Otherwise, the lecture is not included
       else weightMatrix[i][w] = weightMatrix[i - 1][w];
     }
   }

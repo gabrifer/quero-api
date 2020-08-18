@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('../api');
 
-module.exports = async (settings = {}) => {
+const expressLoader = async (settings = {}) => {
   try {
     console.log('[EXPRESS LOADER] - Loading express app settings');
 
@@ -34,3 +34,5 @@ module.exports = async (settings = {}) => {
     console.error(err);
   }
 };
+
+module.exports = expressLoader;
