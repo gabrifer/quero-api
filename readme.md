@@ -6,7 +6,7 @@ serem ministradas no dia com a sua respectiva duração. As restrições que dev
 consideradas são as seguintes:
 
 - As palestras serão organizadas em trilhas que possuem duas sessões: uma de manhã e outra
-  a tarde;
+  de tarde;
 - A sessão da manhã deve ser finalizada até o horário de almoço;
 - A sessão da tarde deve ser finalizada até o horário do happy hour;
 - O happy hour possui um horário estimado para começar.
@@ -19,7 +19,7 @@ Para resolver o problema, uma API será construída utilizando Node.js. A soluç
 seguindo um modelo de arquitetura em três camadas que pode ser visualizado na figura
 abaixo:
 
-![Modelo de Arquitetura de três camadas](https://ibb.co/LxCYBV1)
+![Modelo de Arquitetura de três camadas](https://drive.google.com/uc?export=view&id=1sPmtOnXl2cuFbhWOD2cMQ6-oOTM4GLCg)
 
 ## Camada de controle
 
@@ -107,11 +107,91 @@ npm test
 
 # Testando a aplicação
 
-A aplicação está publicada no seguinte servidor:
+A aplicação está publicada no seguinte caminho do heroku:
 
-SERVIDOR AQUI
+```
+https://morning-sierra-43845.herokuapp.com/
+```
 
 Aceitando chamadas no seguinte endpoint:
 
+```
 POST /api/lectures/schedule
-body: input data goes here
+body: dados referente as palestras conforme especificado
+```
+
+Para realizar uma requisição neste endpoint, utilize o Postman conforme imagem abaixo:
+
+1NWc7zbbBiTEslVs0VMY9Lk3PvdSt1bUn
+
+![Exemplo no de requisição no Postman](https://drive.google.com/uc?export=view&id=1NWc7zbbBiTEslVs0VMY9Lk3PvdSt1bUn)
+
+Utilizando os seguintes dados de entrada:
+
+```json
+{
+  "data": [
+    "Writing Fast Tests Against Enterprise Rails 60min",
+    "Overdoing it in Python 45min",
+    "Lua for the Masses 30min",
+    "Ruby Errors from Mismatched Gem Versions 45min",
+    "Common Ruby Errors 45min",
+    "Rails for Python Developers lightning",
+    "Communicating Over Distance 60min",
+    "Accounting-Driven Development 45min",
+    "Woah 30min",
+    "Sit Down and Write 30min",
+    "Pair Programming vs Noise 45min",
+    "Rails Magic 60min",
+    "Ruby on Rails: Why We Should Move On 60min",
+    "Clojure Ate Scala (on my project) 45min",
+    "Programming in the Boondocks of Seattle 30min",
+    "Ruby vs. Clojure for Back-End Development 30min",
+    "Ruby on Rails Legacy App Maintenance 60min",
+    "A World Without HackerNews 30min",
+    "User Interface CSS in Rails Apps 30min"
+  ]
+}
+```
+
+A saída esperada para esta entrada é a seguinte:
+
+```json
+{
+  "data": [
+    {
+      "title": "Track 1",
+      "data": [
+        "9:00AM Programming in the Boondocks of Seattle 30min",
+        "9:30AM Sit Down and Write 30min",
+        "10:00AM Woah 30min",
+        "10:30AM Rails for Python Developers lightning",
+        "10:35AM Lua for the Masses 30min",
+        "11:5AM Overdoing it in Python 45min",
+        "12:00PM Lunch",
+        "13:00PM A World Without HackerNews 30min",
+        "13:30PM Ruby vs. Clojure for Back-End Development 30min",
+        "14:00PM Pair Programming vs Noise 45min",
+        "14:45PM Accounting-Driven Development 45min",
+        "15:30PM Common Ruby Errors 45min",
+        "16:15PM Ruby Errors from Mismatched Gem Versions 45min",
+        "17:00PM Networking Event"
+      ]
+    },
+    {
+      "title": "Track 2",
+      "data": [
+        "9:00AM Rails Magic 60min",
+        "10:00AM Communicating Over Distance 60min",
+        "11:00AM Writing Fast Tests Against Enterprise Rails 60min",
+        "12:00PM Lunch",
+        "13:00PM User Interface CSS in Rails Apps 30min",
+        "13:30PM Ruby on Rails Legacy App Maintenance 60min",
+        "14:30PM Clojure Ate Scala (on my project) 45min",
+        "15:15PM Ruby on Rails: Why We Should Move On 60min",
+        "17:00PM Networking Event"
+      ]
+    }
+  ]
+}
+```
